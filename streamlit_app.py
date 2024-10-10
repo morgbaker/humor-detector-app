@@ -2,7 +2,6 @@ import streamlit as st
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from PIL import Image
-import os
 
 import streamlit as st
 from PIL import Image  # If you're using images elsewhere
