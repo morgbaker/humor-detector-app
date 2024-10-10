@@ -132,21 +132,50 @@ with tabs[1]:
 
 # Credits tab
 with tabs[2]:
+    # Credits Section
+    st.write("### Credits")
+    st.write("App Developed by: Morgan Baker")
+    st.write("Model Fine-Tuned by: [MohamedAmineDHIAB](https://github.com/MohamedAmineDHIAB)")
+    st.write("Specific Model Used: [Humor Detection Model](https://huggingface.co/mohameddhiab/humor-no-humor)")
+
+    # Add a horizontal line separator
+    st.markdown(
+        """
+        <style>
+        hr {
+            border: 1px solid #333;  /* Set the border color to dark grey */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    st.markdown("---")  
+
+    # About Me Section
     st.header("About Me")
     col1, col2 = st.columns([1, 2])  
     
     with col1:
         image_path = "headshot.jpg"  
         image = Image.open(image_path)
-        st.image(image, caption='Morgan Baker', use_column_width=True)
-
+        st.image(image, caption='', use_column_width=True)
+        st.markdown(
+            """
+            <style>
+            .caption {
+                color: black;  /* Change caption color to black */
+                font-size: 14px;  /* Optional: adjust font size */
+                text-align: center;  /* Optional: center the caption */
+            }
+            </style>
+            <p class="caption">Morgan Baker</p>
+            """,
+            unsafe_allow_html=True
+        )
+    
     with col2:
         st.write("👋 Hello! I'm an undergraduate student studying Data Science and Economics at West Virginia University. I am interested in humor text analysis and machine learning applications. Please feel free to reach out with any questions or feedback!")
         st.write("🔗 LinkedIn: [Connect with me!](https://www.linkedin.com/in/morgan-baker-1a358b265/)")
-    st.markdown("---")  
-    st.write("### Credits")
-    st.write("App Developed by: Morgan Baker")
-    st.write("Model used: [Humor Detection Model](https://huggingface.co/mohameddhiab/humor-no-humor)") 
 
 
 
