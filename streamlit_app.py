@@ -13,30 +13,18 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-color: #709caf;  /* Background color */
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%230f1857' fill-opacity='0.12'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E"); /* Background image */
-        background-size: cover;
-        background-repeat: no-repeat;
+        background-color: #e9f289;  /* Background color set to #e9f289 */
+        background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000200' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: cover;  /* Ensure the background covers the entire app */
     }
-    /* Change the color of inactive tab text */
-    .stTabs .stTab {
-        color: #003366 !important;  /* Dark blue color for inactive tabs */
-    }
-    /* Change the color of the active tab text */
-    .stTabs .stTab.stTab-active {
-        color: #003366 !important;  /* Dark blue color for active tab */
-        font-weight: bold !important;  /* Make the active tab bold */
-    }
-    /* Make the active tab more distinguishable */
-    .stTabs .stTab.stTab-active div {
-        border-bottom: 2px solid #003366;  /* Add a bottom border to the active tab */
-        padding: 5px;  /* Adjust padding for better aesthetics */
+    /* Change text color to black */
+    .stApp, .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6, .stApp p {
+        color: black;  /* Set text color to black */
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 
 # Load the tokenizer and model for humor detection
@@ -52,10 +40,26 @@ tabs = st.tabs(["😂 Enter a Joke", "📖 About the Model", "🎓 Credits"])
 
 # Enter a Joke tab
 with tabs[0]:
-    st.header("Test Your Jokes")
+    st.header("Test Your Jokes!")
     st.subheader("Ever wondered if your joke would land? Now you can test your ideas and discover if your joke is funny before you share!")
+
+
     with st.expander("Disclaimer", expanded=False):
+        st.markdown(
+        """
+        <style>
+        .stExpander {
+            border: 1px solid #b0b0b0;  /* Light grey border */
+            border-radius: 5px;  /* Rounded corners */
+            padding: 5px;  /* Slight padding */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
         st.write("Please note that the humor detection model may not always provide accurate results. The creators are not responsible for any embarrassment caused by jokes that may not land as intended.")
+   
+    
     # Text input from user
     input_text = st.text_input("💬 Enter your joke:", "")
 
