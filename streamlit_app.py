@@ -2,6 +2,9 @@ import streamlit as st
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from PIL import Image
+import os
+
+
 
 # Load the tokenizer and model for humor detection
 tokenizer = AutoTokenizer.from_pretrained("mohameddhiab/humor-no-humor")
