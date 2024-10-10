@@ -13,10 +13,24 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-color: #c74848 !important;  /* Background color */
-        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm20 0a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM10 37a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm10-17h20v20H20V20zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14z' fill='%23ed8d50' fill-opacity='0.59' fill-rule='evenodd'/%3E%3C/svg%3E") !important; /* Background image */
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
+        background-color: #709caf;  /* Background color */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%230f1857' fill-opacity='0.12'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E"); /* Background image */
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    /* Change the color of inactive tab text */
+    .stTabs .stTab {
+        color: #003366 !important;  /* Dark blue color for inactive tabs */
+    }
+    /* Change the color of the active tab text */
+    .stTabs .stTab.stTab-active {
+        color: #003366 !important;  /* Dark blue color for active tab */
+        font-weight: bold !important;  /* Make the active tab bold */
+    }
+    /* Make the active tab more distinguishable */
+    .stTabs .stTab.stTab-active div {
+        border-bottom: 2px solid #003366;  /* Add a bottom border to the active tab */
+        padding: 5px;  /* Adjust padding for better aesthetics */
     }
     </style>
     """,
