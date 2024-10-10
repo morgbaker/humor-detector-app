@@ -7,7 +7,7 @@ import streamlit as st
 from PIL import Image  # If you're using images elsewhere
 import os  # For handling file paths
 
-st.set_page_config(page_title="Humor Detection App", layout="wide")
+st.set_page_config(page_title="Humor Detection App")
 
 st.markdown(
     """
