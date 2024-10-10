@@ -42,9 +42,40 @@ tabs = st.tabs(["😂 Enter a Joke", "📖 About the Model", "🎓 Credits"])
 with tabs[0]:
     st.header("Test Your Jokes!")
     st.subheader("Ever wondered if your joke would land? Now you can test your ideas and discover if your joke is funny before you share!")
+   
 
+    # Text input from user
+    input_text = st.text_input("💬 Enter your joke:", "")
 
-    with st.expander("Disclaimer", expanded=False):
+    if input_text:
+        with st.spinner('Analyzing your joke...'):
+            # Tokenize the input text
+            inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
+
+            # Forward pass through the model
+            with torch.no_grad():
+                outputs = model(**inputs)
+
+            # Get the predicted class
+            predicted_class = torch.argmax(outputs.logits, dim=1).item()
+
+            # Define the labels
+            labels = ['No Humor', 'Humor']  # Adjust labels based on the model's training
+            result = labels[predicted_class]
+
+            # Display the result
+            st.write("### Prediction:")
+            st.write(result)
+
+        # Fun effects based on the prediction
+        if result == 'Humor':
+            st.balloons()  # Display balloons effect
+            st.success("😂 That's a funny joke! Keep them coming!")
+        else:
+            st.warning("😐 Not quite a joke! Better luck next time!")
+   
+    with st.expander(
+    "⚠️ **Disclaimer** ⚠️",expanded=False):
         st.markdown(
         """
         <style>
@@ -58,38 +89,6 @@ with tabs[0]:
         unsafe_allow_html=True
     )
         st.write("Please note that the humor detection model may not always provide accurate results. The creators are not responsible for any embarrassment caused by jokes that may not land as intended.")
-   
-    
-    # Text input from user
-    input_text = st.text_input("💬 Enter your joke:", "")
-
-    if input_text:
-        # Tokenize the input text
-        inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
-
-        # Forward pass through the model
-        with torch.no_grad():
-            outputs = model(**inputs)
-
-        # Get the predicted class
-        predicted_class = torch.argmax(outputs.logits, dim=1).item()
-
-        # Define the labels
-        labels = ['No Humor', 'Humor']  # Adjust labels based on the model's training
-        result = labels[predicted_class]
-
-        # Display the result
-        st.write("### Prediction:")
-        st.write(result)
-
-        # Fun effects based on the prediction
-        if result == 'Humor':
-            st.balloons()  # Display balloons effect
-            st.success("😂 That's a funny joke! Keep them coming!")
-        else:
-            st.warning("😐 Not quite a joke! Better luck next time!")
-
-
 # About the Model tab
 with tabs[1]:
     st.header("About the Model")
