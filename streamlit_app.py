@@ -126,7 +126,6 @@ with tabs[1]:
         - **Language Nuances**: Sarcasm, irony, and wordplay can be particularly challenging for AI models to interpret correctly. The model may not always accurately identify these forms of humor.
     """)
 
-    st.markdown("---")  # Add a horizontal line for separation
 
 
 # Credits tab
