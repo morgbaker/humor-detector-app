@@ -4,6 +4,26 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from PIL import Image
 import os
 
+import streamlit as st
+from PIL import Image  # If you're using images elsewhere
+import os  # For handling file paths
+
+st.set_page_config(page_title="Humor Detection App", layout="wide")
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #c74848 !important;  /* Background color */
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm20 0a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM10 37a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm10-17h20v20H20V20zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14z' fill='%23ed8d50' fill-opacity='0.59' fill-rule='evenodd'/%3E%3C/svg%3E") !important; /* Background image */
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 
 # Load the tokenizer and model for humor detection
@@ -11,7 +31,7 @@ tokenizer = AutoTokenizer.from_pretrained("mohameddhiab/humor-no-humor")
 model = AutoModelForSequenceClassification.from_pretrained("mohameddhiab/humor-no-humor")
 
 # Set the title and background
-st.set_page_config(page_title="Humor Detection App", layout="centered")
+
 st.title("🤖 Humor Detection with Transformers")
 
 # Create tabs
