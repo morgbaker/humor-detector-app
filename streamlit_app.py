@@ -4,8 +4,8 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from PIL import Image
 
 import streamlit as st
-from PIL import Image  # If you're using images elsewhere
-import os  # For handling file paths
+from PIL import Image  
+import os  
 
 st.set_page_config(page_title="Humor Detection App")
 
